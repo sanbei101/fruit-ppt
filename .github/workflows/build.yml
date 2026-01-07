@@ -1,0 +1,39 @@
+name: build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build PPT
+        run: pnpm build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          force_orphan: true # 保持一次提交历史记录
