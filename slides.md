@@ -349,9 +349,27 @@ scheduler = optim.lr_scheduler.StepLR(
 
 ::right::
 
+# 迁移学习说明
+
+<div class="text-sm">
+
+**训练策略**:
+
+- `lr=0.0001` - 比 CNN 小 10 倍，避免破坏预训练权重
+- `StepLR(5, 0.1)` - 每 5 轮学习率 × 0.1
+- `epochs=10` - 更多轮次确保充分微调
+
+</div>
+
+---
+layout: two-cols
+layoutClass: gap-16
+---
+
 # ResNet 训练过程
 
 **强化训练循环**:
+
 ```python
 for epoch in range(10):
     model_resnet.train()
@@ -370,10 +388,30 @@ for epoch in range(10):
     acc = 100 * correct / total
     print(f"Epoch {epoch+1}, Accuracy: {acc:.2f}%")
 ```
+
+::right::
+
+# 训练增强说明
+
 <div class="text-sm">
 
-加载 `ImageNet` 预训练权重，仅替换最后的全连接层以适应 10 分类任务，
-使用更小的学习率 `0.0001` 微调，配合 `StepLR` 调度器每 5 轮衰减学习率。
+**训练循环增强**:
+
+| 增强 | 说明 |
+|------|------|
+| `torch.max(outputs, 1)` | 获取预测类别 |
+| `correct += ...` | 统计正确数量 |
+| `acc = 100 * correct / total` | 计算训练准确率 |
+| `scheduler.step()` | 更新学习率 |
+
+<div class="pt-2">
+
+- **残差连接** - 缓解梯度消失，允许更深的网络
+- **BatchNorm** - 稳定训练，加速收敛
+- **预训练权重** - 初始化接近最优解
+- **学习率衰减** - 后期精细调整
+
+</div>
 
 </div>
 
