@@ -38,6 +38,9 @@ jobs:
           publish_dir: dist
           force_orphan: true # 保持一次提交历史记录
       
+      - name: install playwright browsers
+        run: pnpm exec playwright install
+        
       - name: build pdf and pptx
         run: |
           pnpm export:pdf
