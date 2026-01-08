@@ -227,7 +227,7 @@ layout: two-cols
 layoutClass: gap-16
 ---
 
-# 模型 2: ResNet18
+# 模型 2: ResNet
 
 **迁移学习配置**:
 
@@ -257,7 +257,7 @@ scheduler = optim.lr_scheduler.StepLR(
 
 ::right::
 
-# ResNet18 训练过程
+# ResNet 训练过程
 
 **强化训练循环**:
 ```python
@@ -472,51 +472,164 @@ layout: two-cols
 layoutClass: gap-16
 ---
 
-# 技术亮点
+# ONNX 模型导出
+
+**导出配置**:
+
+```python
+import torch
+
+# 准备虚拟输入
+dummy_input = torch.randn(1, 3, 100, 100).to(device)
+
+# 动态 batch 配置
+batch = torch.export.Dim("batch", min=1, max=1024)
+dynamic_shapes = {"x": {0: batch}}
+```
 
 <div class="text-sm">
 
-**1. 数据增强策略**
+**导出参数说明**:
 
-- RandomHorizontalFlip(p=0.5)
-- RandomRotation(20 度)
-- ImageNet 标准化
-
-**2. 迁移学习**
-
-- 使用 ImageNet 预训练 ResNet18
-- 更换全连接层适应 10 分类
-- 学习率衰减调度器
-
-**3. 模型部署**
-
-- 导出 ONNX 格式
-- 动态 batch 支持
-- ONNXRuntime 推理优化
+| 参数 | 值 | 说明 |
+|------|-----|------|
+| `opset_version` | 21 | ONNX 算子集版本 |
+| `do_constant_folding` | True | 常量折叠优化 |
+| `dynamic_shapes` | batch=1~1024 | 支持动态批次 |
 
 </div>
 
 ::right::
 
-# 项目总结
+# 模型导出代码
 
-<div class="text-sm">
+```python
+torch.onnx.export(
+    model_resnet,
+    dummy_input,
+    "fruit_model.onnx",
+    export_params=True,
+    opset_version=21,
+    do_constant_folding=True,
+    input_names=['x'],
+    output_names=['output'],
+    dynamic_shapes=dynamic_shapes,
+    dynamo=True
+)
+```
 
-**完成情况**:
+<div class="text-sm pt-4">
 
-- ✅ 数据预处理与增强
-- ✅ Simple CNN 模型实现
-- ✅ ResNet18 迁移学习
-- ✅ 模型对比与优化
-- ✅ 结果评估与可视化
-- ✅ ONNX 模型导出与测试
+**为什么选择 ONNX?**
 
-**最终成果**:
+- **跨平台部署**: 一次导出，到处运行
+- **推理优化**: ONNXRuntime 针对生产环境优化，推理速度更快
+- **框架无关**: 解耦 PyTorch 依赖,无需在客户端安装完整深度学习框架
 
-- ResNet18 训练准确率: **100%**
-- 测试集随机抽样准确率: **94%**
-- 成功部署 ONNX 推理模型
+</div>
 
+---
+layout: two-cols
+layoutClass: gap-16
+---
+
+# Gradio 可视化部署
+
+**部署方案**:
+
+```python
+import gradio as gr
+import onnxruntime as ort
+import numpy as np
+
+session = ort.InferenceSession(
+    "fruit_model.onnx",
+    providers=["CPUExecutionProvider"]
+)
+targets = ["apple", "banana", "orange",
+           "strawberry", "tomato", "cucumber",
+           "eggplant", "grape", "mango",
+           "watermelon"]
+```
+
+<div class="text-sm pt-4">
+
+**核心优势**:
+- ONNX 模型推理,跨平台兼容
+- CPU 执行,无需 GPU
+- Gradio 一键生成 Web 界面
+
+</div>
+
+::right::
+
+# 预处理逻辑
+
+```python
+def predict(img):
+    # 转换为 RGB 并调整尺寸
+    img = img.convert("RGB").resize((100, 100))
+    img_data = np.array(img).transpose(2, 0, 1)
+    img_data = img_data.astype(np.float32) / 255.0
+
+    # ImageNet 标准化
+    mean, std = [0.485, 0.456, 0.406], 
+                [0.229, 0.224, 0.225]
+    for i in range(3):
+       img_data[i] = (img_data[i] - mean[i]) / std[i]
+
+    # ONNX 推理
+    outputs = session.run(
+        ["output"],
+        {"x": img_data[None, ...]}
+    )
+
+    # Softmax 概率计算
+    exp_out = np.exp(outputs[0][0])
+    probs = exp_out / np.sum(exp_out)
+    return {targets[i]: float(probs[i])
+            for i in range(len(targets))}
+```
+
+---
+layout: two-cols
+layoutClass: gap-16
+---
+
+# Gradio 界面配置
+
+```python
+demo = gr.Interface(
+    fn=predict,
+    inputs=gr.Image(type="pil", label="上传水果图片"),
+    outputs=gr.Label(
+        num_top_classes=3,
+        label="预测结果"
+    ),
+    title="🍎 水果图像分类器",
+    description="上传一张水果图片，模型将自动识别其种类",
+    examples=[
+        ["example/apple.jpg"],
+        ["example/banana.jpg"],
+        ["example/strawberry.jpg"],
+        ["example/tomato.jpg"],
+        ["example/eggplant.jpg"],
+        ["example/grape.jpg"],
+        ["example/mango.jpg"],
+        ["example/watermelon.jpg"],
+    ],
+)
+if __name__ == "__main__":
+    demo.launch(share=True)
+```
+
+::right::
+# 界面预览
+
+<div>
+  <img src="/predict-1.png">
+
+  <img src="/predict-2.png" class="pt-4">
 </div>
 
 ---
@@ -526,7 +639,6 @@ class: text-center
 
 # 感谢聆听
 
-### 请各位老师批评指正
 
 <div class="pt-8">
   <img src="/fruit/strawberry.jpg" class="h-32 rounded shadow mx-auto">
