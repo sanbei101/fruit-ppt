@@ -14,6 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
+      - name: Install Chinese Fonts
+        run: |
+          sudo apt update
+          sudo apt install -y fonts-noto-cjk
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -39,8 +44,8 @@ jobs:
           force_orphan: true # 保持一次提交历史记录
       
       - name: install playwright browsers
-        run: pnpm exec playwright install
-        
+        run: pnpm exec playwright install --with-deps --only-shell chromium
+
       - name: build pdf and pptx
         run: |
           pnpm export:pdf
