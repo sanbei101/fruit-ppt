@@ -326,6 +326,8 @@ layoutClass: gap-16
 ```python
 weights = ResNet18_Weights.DEFAULT
 model_resnet = resnet18(weights=weights)
+# 替换最后的全连接层
+# 512 维特征 → 10 类输出
 model_resnet.fc = nn.Linear(
     model_resnet.fc.in_features,
     num_classes
@@ -353,11 +355,25 @@ scheduler = optim.lr_scheduler.StepLR(
 
 <div class="text-sm">
 
-**训练策略**:
 
-- `lr=0.0001` - 比 CNN 小 10 倍，避免破坏预训练权重
-- `StepLR(5, 0.1)` - 每 5 轮学习率 × 0.1
-- `epochs=10` - 更多轮次确保充分微调
+
+**优化器与调度器解读**:
+
+| 组件 | 说明 |
+|------|------|
+| `Adam` | 自适应矩估计，结合动量和 RMSProp |
+| `lr=0.0001` | 小学习率保护预训练权重 |
+| `StepLR` | 阶梯式衰减，每 5 轮 × 0.1 |
+| `gamma=0.1` | 衰减因子，学习率变为 10% |
+
+**学习率变化**:
+
+```
+Epoch 1-5:  0.0001
+Epoch 6-10: 0.00001
+Epoch 11+:  0.000001
+```
+
 
 </div>
 
@@ -421,7 +437,8 @@ layoutClass: gap-16
 ---
 
 # ResNet18 训练结果
-### 迁移学习在第 2 轮即达到几乎 100% 准确率
+
+**迁移学习在第 2 轮即达到几乎 100% 准确率**
 
 **训练数据**:
 
