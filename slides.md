@@ -84,26 +84,46 @@ train_transform = transforms.Compose([
         [0.229, 0.224, 0.225]
     )
 ])
-```
 
-**测试集标准化**:
-
-```python
+# 定义测试集变换:仅标准化
 test_transform = transforms.Compose([
     transforms.Resize((100, 100)),
     transforms.ToTensor(),
     transforms.Normalize(
-        [0.485, 0.456, 0.406],
-        [0.229, 0.224, 0.225]
-    )
+      [0.485, 0.456, 0.406],
+      [0.229, 0.224, 0.225]
+   )
 ])
 ```
 
 ::right::
 
+# 预处理说明
+
+<div class="text-sm">
+
+**训练集增强策略**:
+
+- `Resize((100, 100))` - 统一图片尺寸
+- `RandomHorizontalFlip(p=0.5)` - 50% 概率水平翻转，增加镜像样本
+- `RandomRotation(20)` - 随机旋转 ±20°，模拟不同拍摄角度
+- `Normalize` - ImageNet 标准化，加速模型收敛
+
+**测试集标准化**:
+
+- 仅统一尺寸和标准化，**不做数据增强**
+- 确保测试结果反映真实性能
+
+</div>
+
+---
+layout: two-cols
+layoutClass: gap-16
+---
+
 # 数据加载
 
-**数据加载配置**:
+**DataLoader 配置**:
 
 ```python
 from torch.utils.data import DataLoader
@@ -119,7 +139,11 @@ test_loader = DataLoader(
 )
 ```
 
-**环境配置**:
+::right::
+
+# 环境配置
+
+**设备选择**:
 
 ```python
 device = torch.device(
@@ -127,6 +151,21 @@ device = torch.device(
 )
 # 当前使用的设备: cuda
 ```
+
+<div class="text-sm pt-4">
+
+**加载参数说明**:
+
+| 参数 | 训练集 | 测试集 | 说明 |
+|------|--------|--------|------|
+| `batch_size` | 256 | 256 | 每批样本数 |
+| `shuffle` | True | False | 训练打乱，测试保持顺序 |
+
+**设备优势**:
+
+- GPU 并行计算，训练速度提升 10-100 倍
+- CUDA 加速矩阵运算
+</div>
 
 ---
 layout: two-cols
