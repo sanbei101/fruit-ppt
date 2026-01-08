@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@slidev/cli':
-        specifier: ^52.11.1
-        version: 52.11.1(@babel/parser@7.28.5)(@nuxt/kit@3.20.2)(@types/markdown-it@14.1.2)(@types/node@22.19.3)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(playwright-chromium@1.57.0)(postcss@8.5.6)
+        specifier: ^52.11.2
+        version: 52.11.2(@babel/parser@7.28.5)(@nuxt/kit@3.20.2)(@types/markdown-it@14.1.2)(@types/node@22.19.3)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(playwright-chromium@1.57.0)(postcss@8.5.6)
       '@slidev/theme-default':
         specifier: latest
         version: 0.25.0
@@ -617,8 +617,8 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@slidev/cli@52.11.1':
-    resolution: {integrity: sha512-zDymuAUNcVmHi/l9g7pR8fEP8mqKqmxpWKnSmiLUcwlunrBNGcqz6JcpbMiSIsZzBd/YW5r/k/AOsZnqI5hWQQ==}
+  '@slidev/cli@52.11.2':
+    resolution: {integrity: sha512-fYrq6j7wCXQiP/aLmnc6+Jhthcf7OTNhWZFbEPxrxf17Gjh/clW9GCYZeazlF9o5mNA1qpmuqCAEgMMYhKM8iQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -627,12 +627,12 @@ packages:
       playwright-chromium:
         optional: true
 
-  '@slidev/client@52.11.1':
-    resolution: {integrity: sha512-G/AIvT+NRwdjYUTSP6LtZ1Uc5k7daNeNhu0y5alGeo2fJ3DCEPbQh/NbH6UDrOWf7JdkBDDEczn76RkbcfPT6A==}
+  '@slidev/client@52.11.2':
+    resolution: {integrity: sha512-MpJCKaBm7h7uBGyvMpY9izXXSs3x8wjalUHEaa6d/jWNd/PDj2Gp5QtRTPpPwnIIeRA1vQurIUGPtlVl9HwzjQ==}
     engines: {node: '>=18.0.0'}
 
-  '@slidev/parser@52.11.1':
-    resolution: {integrity: sha512-Rm5Wmu1TwsXNdt9CgqyVd26CrP/+P+JpHhG3dLJ5AY10kkGFidXBTgGYoM8wy+Xj+8tIPME72W6UjfbYaIxuSg==}
+  '@slidev/parser@52.11.2':
+    resolution: {integrity: sha512-MIVnqJm+cKXorZKtYFqt4thoHXSwVeLBc9oOYa0cYHLR86I+jcGDYgeRPd3pSavta4zdNUQPwa3s7/9/In9qlw==}
     engines: {node: '>=18.0.0'}
 
   '@slidev/rough-notation@0.1.0':
@@ -650,8 +650,8 @@ packages:
     resolution: {integrity: sha512-X67V4cCgM0Sz50bP8GbVzmiL8DHC2IXvdKcsN7DlxHyf+/T4d9GveeGukwha5Fx3MuYeGZWKag7TFL2ZY4w54A==}
     engines: {node: '>=18.0.0'}
 
-  '@slidev/types@52.11.1':
-    resolution: {integrity: sha512-sh+BbkExnHewZ2XJRoyWp+Xcw5xgYFIHxxhdWwjsI28L0WIZOAkAYjXdPCdROr9064iiXCVSMR7X0C2ENRudUQ==}
+  '@slidev/types@52.11.2':
+    resolution: {integrity: sha512-mDVWle6GaM1/dU3D8mIPrpYR2iAcr86RpYJ4fr9hPb2J8vEOJck92969iOwLKmUMU5zXakLsoajgmqbBrQ/hsA==}
     engines: {node: '>=18.0.0'}
 
   '@types/d3-array@3.2.2':
@@ -1034,8 +1034,8 @@ packages:
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
-  baseline-browser-mapping@2.9.11:
-    resolution: {integrity: sha512-Sg0xJUNDU1sJNGdfGWhVHX0kkZ+HWcvmVymJbj6NSgZZmW/8S9Y2HQ5euytnIgakgxN6papOAWiwDo1ctFDcoQ==}
+  baseline-browser-mapping@2.9.12:
+    resolution: {integrity: sha512-Mij6Lij93pTAIsSYy5cyBQ975Qh9uLEc5rwGTpomiZeXZL9yIS6uORJakb3ScHgfs0serMMfIbXzokPMuEiRyw==}
     hasBin: true
 
   binary-extensions@2.3.0:
@@ -1070,8 +1070,8 @@ packages:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
     engines: {node: '>=8'}
 
-  caniuse-lite@1.0.30001762:
-    resolution: {integrity: sha512-PxZwGNvH7Ak8WX5iXzoK1KPZttBXNPuaOvI2ZYU7NrlM+d9Ov+TUvlLOBNGzVXAntMSMMlJPd+jY6ovrVjSmUw==}
+  caniuse-lite@1.0.30001763:
+    resolution: {integrity: sha512-mh/dGtq56uN98LlNX9qdbKnzINhX0QzhiWBFEkFfsFO4QyCvL8YegrJAazCwXIeqkIob8BlZPGM3xdnY+sgmvQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -3238,7 +3238,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@slidev/cli@52.11.1(@babel/parser@7.28.5)(@nuxt/kit@3.20.2)(@types/markdown-it@14.1.2)(@types/node@22.19.3)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(playwright-chromium@1.57.0)(postcss@8.5.6)':
+  '@slidev/cli@52.11.2(@babel/parser@7.28.5)(@nuxt/kit@3.20.2)(@types/markdown-it@14.1.2)(@types/node@22.19.3)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(playwright-chromium@1.57.0)(postcss@8.5.6)':
     dependencies:
       '@antfu/ni': 28.1.0
       '@antfu/utils': 9.3.0
@@ -3249,15 +3249,15 @@ snapshots:
       '@shikijs/markdown-it': 3.21.0(markdown-it-async@2.2.0)
       '@shikijs/twoslash': 3.21.0(typescript@5.9.3)
       '@shikijs/vitepress-twoslash': 3.21.0(@nuxt/kit@3.20.2)(typescript@5.9.3)
-      '@slidev/client': 52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
-      '@slidev/parser': 52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
-      '@slidev/types': 52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      '@slidev/client': 52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      '@slidev/parser': 52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      '@slidev/types': 52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
       '@unocss/extractor-mdc': 66.5.12
       '@unocss/reset': 66.5.12
       '@vitejs/plugin-vue': 6.0.3(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       '@vitejs/plugin-vue-jsx': 5.1.3(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       ansis: 4.2.0
-      chokidar: 4.0.3
+      chokidar: 5.0.0
       cli-progress: 3.12.0
       connect: 3.7.0
       fast-deep-equal: 3.1.3
@@ -3339,7 +3339,7 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/client@52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
+  '@slidev/client@52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@antfu/utils': 9.3.0
       '@iconify-json/carbon': 1.2.15
@@ -3348,9 +3348,9 @@ snapshots:
       '@shikijs/engine-javascript': 3.21.0
       '@shikijs/monaco': 3.21.0
       '@shikijs/vitepress-twoslash': 3.21.0(@nuxt/kit@3.20.2)(typescript@5.9.3)
-      '@slidev/parser': 52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      '@slidev/parser': 52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
       '@slidev/rough-notation': 0.1.0
-      '@slidev/types': 52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      '@slidev/types': 52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
       '@typescript/ata': 0.9.8(typescript@5.9.3)
       '@unhead/vue': 2.1.1(vue@3.5.26(typescript@5.9.3))
       '@unocss/reset': 66.5.12
@@ -3393,10 +3393,10 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/parser@52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
+  '@slidev/parser@52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@antfu/utils': 9.3.0
-      '@slidev/types': 52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      '@slidev/types': 52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
       yaml: 2.8.2
     transitivePeerDependencies:
       - '@nuxt/kit'
@@ -3431,7 +3431,7 @@ snapshots:
 
   '@slidev/types@0.47.5': {}
 
-  '@slidev/types@52.11.1(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
+  '@slidev/types@52.11.2(@nuxt/kit@3.20.2)(@vue/compiler-sfc@3.5.26)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@antfu/utils': 9.3.0
       '@shikijs/markdown-it': 3.21.0(markdown-it-async@2.2.0)
@@ -3975,7 +3975,7 @@ snapshots:
 
   argparse@2.0.1: {}
 
-  baseline-browser-mapping@2.9.11: {}
+  baseline-browser-mapping@2.9.12: {}
 
   binary-extensions@2.3.0: {}
 
@@ -3987,8 +3987,8 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.11
-      caniuse-lite: 1.0.30001762
+      baseline-browser-mapping: 2.9.12
+      caniuse-lite: 1.0.30001763
       electron-to-chromium: 1.5.267
       node-releases: 2.0.27
       update-browserslist-db: 1.2.3(browserslist@4.28.1)
@@ -4015,7 +4015,7 @@ snapshots:
 
   cac@6.7.14: {}
 
-  caniuse-lite@1.0.30001762: {}
+  caniuse-lite@1.0.30001763: {}
 
   ccount@2.0.1: {}
 
