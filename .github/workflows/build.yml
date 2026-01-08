@@ -37,3 +37,17 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: dist
           force_orphan: true # 保持一次提交历史记录
+      
+      - name: build pdf and pptx
+        run: |
+          pnpm export:pdf
+          pnpm export:pptx
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: pdf
+          files: |
+            **/*.pdf
+            **/*.pptx
+          make_latest: true
