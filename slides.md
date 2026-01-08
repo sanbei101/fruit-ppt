@@ -107,7 +107,14 @@ test_transform = transforms.Compose([
 - `Resize((100, 100))` - 统一图片尺寸
 - `RandomHorizontalFlip(p=0.5)` - 50% 概率水平翻转，增加镜像样本
 - `RandomRotation(20)` - 随机旋转 ±20°，模拟不同拍摄角度
-- `Normalize` - ImageNet 标准化，加速模型收敛
+
+**ImageNet 标准化**:
+
+```python
+mean = [0.485, 0.456, 0.406]  # RGB 通道均值
+std = [0.229, 0.224, 0.225]   # RGB 通道标准差
+# 公式: (x - mean) / std
+```
 
 **测试集标准化**:
 
